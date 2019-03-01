@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="initial-scale=1, shrink-to-fit=no, width=device-width" name="viewport">
+	<title>Home Page</title>
+
+	<!-- Google Fonts and Icons -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+	<!-- Bootstrap 4 -->
+	<link href="https://daemonite.github.io/material/css/material.min.css" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+	<!-- Material JS -->
+	<script src="https://daemonite.github.io/material/js/material.min.js" crossorigin="anonymous"></script>
+
+	<!-- InputMask -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/RobinHerbots/jquery.inputmask@5.0.0-beta.87/css/inputmask.css"></script>
+	<script src="https://cdn.jsdelivr.net/gh/RobinHerbots/jquery.inputmask@5.0.0-beta.87/dist/jquery.inputmask.min.js"></script>
+
+	<!-- FontAwesome -->
+	<script src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+
+	<style>
+		/* Twitter CSS */
+		.twitter-feed {
+			max-height: 500px;
+			overflow-y: scroll;
+		}
+
+		/* Login User Name */
+		.user-name {
+		    font-size: 14px;
+		    font-weight: bold;
+		    display: inline-block;
+
+		/* Youtube CSS */
+		.youtube-feed {
+		    max-height: 300px;
+		    overflow-y: scroll;
+		}
+
+		/* Weather Widget CSS */
+		.weather-date {
+		  font-size: 14px;
+		  font-weight: bold;
+		  color: rgba(0,0,0,0.5);
+		  display: inline-block;
+		}
+		.weather-date .weather-city {
+		  font-size: 21px;
+		  font-weight: bold;
+		  text-transform: uppercase;
+		  color: rgba(0,0,0,0.7);
+		}
+		.weather-temp {
+		  font-size: 50px;
+		  color: rgba(0,0,0,0.9);
+		  font-weight: 100;
+		  display: inline-block;
+		}
+	</style>
+
+	<!-- Javascript -->
+	<script>
+		function GetDate() {
+			//Get Today's Date
+			var today = new Date();
+			var date_day = today.getDate();
+			var date_month = today.getMonth()+1; //January is 0!
+			var date_year = today.getFullYear();
+
+			//Handle Single Digit Numbers
+			if(date_day < 10) {
+				dd = '0' + date_day
+			}
+			if(date_month<10) {
+				date_month = '0' + date_month
+			}
+
+			//Create Strings
+			today = date_month + '/' + date_day + '/' + date_year;
+
+			//Append to Header
+			var newsHeader = document.getElementById("NewsStoryHeader");
+			newsHeader.innerHTML += (' (' + today + ')');
+		}
+
+		// Initialize InputMask
+		$(document).ready(function(){
+	  		$(":input").inputmask();
+		});
+	</script>
+</head>
+<body>
+	<!-- NavBar -->
+	<nav class="navbar navbar-light bg-light">
+		<!-- Logo and Name -->
+		<a class="navbar-brand" href="#">
+			<img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cjxz%0D%0Admcgd2lkdGg9IjI1NnB4IiBoZWlnaHQ9IjMwMHB4IiB2aWV3Qm94PSIwIDAgMjU2IDMwMCIgdmVy%0D%0Ac2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5r%0D%0APSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj4KICAgIDxkZWZzPjwvZGVmcz4KICAgIDxn%0D%0AIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2%0D%0AZW5vZGQiPgogICAgICAgIDxnPgogICAgICAgICAgICA8cGF0aCBkPSJNMCw3NC40MzUgTDAsMjIy%0D%0ALjYwOSBMMTI4LjY5NiwyOTkuMTMgTDEzMS42ODMsMjk0LjM3MyBMMTI4LjY5NiwxNTAuNTY1IEw0%0D%0ALjQyNSw3NC41MjMgTDAsNzQuNDM1IiBmaWxsPSIjNDQ5QjgyIj48L3BhdGg+CiAgICAgICAgICAg%0D%0AIDxwYXRoIGQ9Ik0yNTYsNzMuNzM5IEwyNTYsMjI0IEwxMjguNjk2LDI5OS4xMyBMMTI4LjY5Niwx%0D%0ANTAuNTY1IEwyNTEuMzM3LDczLjg1MiBMMjU2LDczLjczOSIgZmlsbD0iIzlCREI5QyI+PC9wYXRo%0D%0APgogICAgICAgICAgICA8cGF0aCBkPSJNMTI4LDAgTDI1Niw3My43MzkgTDEyOC42OTYsMTUzLjA0%0D%0ANCBMMCw3NC40MzUgTDEyOCwwIiBmaWxsPSIjNTZDREFEIj48L3BhdGg+CiAgICAgICAgICAgIDxw%0D%0AYXRoIGQ9Ik0xOTIuMjkzLDU5LjA5MSBMMTQ5LjAwMSw4NC40MzIgTDE0OS4wMDEsMTM1LjU4IEwx%0D%0AMDUuNjI1LDEwOS44MjMgTDYzLjkxNiwxMzQuMjM4IEw2My45MTYsMjQxLjE0NCBMMTA3LjIwOCwy%0D%0AMTQuNTk1IEwxMDcuMjA4LDE1Ny4wNSBMMTUzLjQ0NywxODYuMjQgTDE5Mi4yOTMsMTYyLjQxOCBM%0D%0AMTkyLjI5Myw1OS4wOTEiIGZpbGw9IiNGRkZGRkYiPjwvcGF0aD4KICAgICAgICA8L2c+CiAgICA8%0D%0AL2c+Cjwvc3ZnPg=="
+				 width="40" height="40" class="d-inline-block align-top pr-2" alt="">
+			Brendan's Version
+        </a>
+
+		<!-- Page Options -->
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item active">
+				<a class="nav-link" href="index.html#">Home</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="transportation.html">Transportation</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="entertainment.html">Entertainment</a>
+			</li>
+		</ul>
+
+		<!-- Logout -->
+		<div class="ml-auto">
+			<div class="user-name">Adam Hitchings</div>
+			<button type="button" class="btn btn-outline-danger">Logout</button>
+		</div>
+	</nav> <!-- End Navbar -->
+
+
+	<!-- Toolbar -->
+	<div class="container-fluid mt-3">
+		<div class="row">
+			<div class="col">
+
+				<!-- Weather Widget -->
+				<div>
+					<div class="weather-date">Thursday, Feb 28 2019
+						<div class="weather-city">Alexandria</div>
+					</div>
+
+					<div class="weather-temp">
+						<img src="https://s5.postimg.cc/yzcm7htyb/image.png" alt="" width="60">
+						34&deg;
+					</div>
+				</div>
+			</div> <!-- End Col -->
+		</div> <!-- End Row -->
+	</div> <!-- End Container -->
+
+	<!-- Main Content -->
+	<div class="container-fluid mt-3">
+		<div class="row">
+			<div class="col-8">
+				<!-- News Feed -->
+				<div class="jumbotron">
+					<!-- News Header -->
+					<h1 id="NewsStoryHeader" class="display-4">Top News Stories</h1>
+					<script>GetDate();</script>
+					<hr class="my-4">
+
+					<!-- News Articles -->
+					<button class="btn btn-info" type="button" data-toggle="collapse" data-target="#NewsFeed" aria-expanded="false" aria-controls="collapseExample">
+						Expand
+					</button>
+					<div class="collapse" id="NewsFeed">
+						<div class="card card-body">
+						</div>
+					</div>
+				</div>
+			</div> <!-- End Col -->
+
+			<!-- Twitter Feeds -->
+			<div class="col-4">
+				<!-- Tenable Careers Twitter -->
+				<div class="embed-responsive border rounded twitter-feed">
+					<a class="twitter-timeline embed-responsive-item" href="https://twitter.com/TenableCareers"></a>
+					<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+				</div>
+
+				<!-- Accenture Twitter -->
+				<div class="embed-responsive border rounded twitter-feed mt-2">
+					<a class="twitter-timeline" href="https://twitter.com/Accenture"></a>
+					<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+				</div>
+			</div> <!-- End Col -->
+		</div> <!-- End Row -->
+	</div> <!-- End Container -->
+</body>
+</html>
